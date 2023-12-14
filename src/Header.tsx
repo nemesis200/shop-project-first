@@ -1,4 +1,4 @@
-import './Header.css'
+import classes from './Header.module.scss'
 import clsx from 'clsx'
 
 type HeaderType = {
@@ -8,7 +8,8 @@ type HeaderType = {
 
 const Header = ({ title, num }: HeaderType) => {
     return (
-        <h1 className={`title ${num === 10 ? `red` : ``}`}>
+        // <h1 className={`title ${num === 10 ? `red` : ``}`}>
+        <h1 className={classes.title}>
             Hello world , {title}, {num}
         </h1>
     )
