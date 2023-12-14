@@ -1,45 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Header from './Header'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-//without jsx
-// const el = React.createElement('h1', { id: 'title' }, 'Hello title')
-
-//with jsx
-// const a = 10
-// const el = <h1 id="title">Hello Title, {a}</h1>
-
-// function App() {
-//     return (
-//         <div>
-//             <h1>Hello World</h1>
-//             <p>
-//                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-//                 Numquam, cupiditate perferendis sed culpa ut quaerat voluptatum,
-//                 ex est doloribus ipsum laborum explicabo a eaque minus, ullam
-//                 beatae. Ab, cum natus.
-//             </p>
-//             <p>
-//                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-//                 Accusantium debitis repudiandae nisi quas voluptatum dolorum
-//                 voluptate quam maiores sapiente! Facilis illo officia voluptatem
-//                 eum debitis suscipit quo quisquam repudiandae et?
-//             </p>
-//         </div>
-//     )
-// }
-
-const Header = (props: HeaderType) => {
-    return (
-        <h1>
-            Hello world , {props.title}, {props.num}
-        </h1>
-    )
-}
-type HeaderType = {
-    title: string
-    num?: number
-}
 
 const Content = () => {
     return (
@@ -64,8 +27,8 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Header title="App.js" num={10} />
-            <Header title="React.js" />
+            <Header title="App.js" num={10} bgColor="blue" position />
+            <Header title="React.js" bgColor="purple" />
             <Content />
         </>
     )
