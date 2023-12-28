@@ -25,7 +25,7 @@ const ProductListItem = ({
         setCount((prevState) => prevState + 1)
     }
     const onDecrementClick = () => {
-        setCount((prevState) => prevState + 1)
+        setCount((prevState) => prevState - 1)
     }
 
     return (
