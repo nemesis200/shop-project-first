@@ -1,5 +1,6 @@
 import { Button, Card, CardContent, TextField } from '@mui/material'
 import './ProductListitem.css'
+import { useState } from 'react'
 
 type ProductListItemType = {
     title: string
@@ -18,6 +19,15 @@ const ProductListItem = ({
     price,
     image,
 }: ProductListItemType) => {
+    const [count, setCount] = useState<number>(1)
+
+    const onIncrementClick = () => {
+        setCount((prevState) => prevState + 1)
+    }
+    const onDecrementClick = () => {
+        setCount((prevState) => prevState + 1)
+    }
+
     return (
         <Card className="product-list-item" variant="outlined">
             <CardContent>
@@ -30,9 +40,13 @@ const ProductListItem = ({
                 <div className="product-features">Capacity: {capacity}</div>
                 <div className="product-price">{price} $</div>
                 <div className="product-quantity">
-                    <Button variant="outlined">-</Button>
-                    <TextField size="small" value="1" />
-                    <Button variant="outlined">+</Button>
+                    <Button variant="outlined" onClick={onDecrementClick}>
+                        -
+                    </Button>
+                    <TextField size="small" value={count} />
+                    <Button variant="outlined" onClick={onIncrementClick}>
+                        +
+                    </Button>
                 </div>
                 <div className="btns-wrap">
                     <Button variant="outlined">Add to cart</Button>
