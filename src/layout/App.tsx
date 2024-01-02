@@ -4,34 +4,32 @@ import Header from './Header'
 import Main from './Main'
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
-import { number } from 'yargs'
 
 type Props = {}
 
-type CardDataType = {
-    totalCount: number
-    totalPrice: number
+type ProductsInCartType = {
+    [id: number]: number
 }
 
 const App = (props: Props) => {
-    const [cartData, setCartData] = useState<CardDataType>({
-        totalCount: 0,
-        totalPrice: 0,
+    const [productsInCart, setProductsCart] = useState<ProductsInCartType>({
+        1: 5,
+        2: 5,
     })
-    const addProductToCart = (count: number, price: number) => {
-        setCartData((prevState) => ({
-            totalCount: prevState.totalCount + count,
-            totalPrice: prevState.totalPrice + count * price,
+
+    const addProductToCart = (id: number, count: number) => {
+        setProductsCart((prevState) => ({
+            ...prevState,
+            [id]: (prevState[id] || 0) + count,
         }))
     }
+
     return (
         <>
-            <StyledEngineProvider>
+            <StyledEngineProvider injectFirst>
                 <CssBaseline />
-                <Header cartData={cartData} />
-                <button onClick={() => addProductToCart(5, 500)}>
-                    Add to Cart
-                </button>
+                <Header productsInCart={productsInCart} />
+
                 <Main addProductToCart={addProductToCart} />
                 <Footer />
             </StyledEngineProvider>
@@ -40,6 +38,3 @@ const App = (props: Props) => {
 }
 
 export default App
-function setCartData(arg0: (prevCartData: number) => any) {
-    throw new Error('Function not implemented.')
-}
