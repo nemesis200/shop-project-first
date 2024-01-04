@@ -4,10 +4,9 @@ import Container from '@mui/material/Container'
 import Logo from 'components/Logo/Logo'
 import Menu from 'components/Logo/Menu/Menu'
 import CartHeader from 'components/Logo/CartHeader/CartHeader'
-
 type Props = {
     productsInCart: {
-        [id: number]: number
+        [id: string]: number
     }
 }
 

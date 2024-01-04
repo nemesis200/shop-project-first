@@ -1,3 +1,5 @@
+import { object } from "prop-types"
+
 export type Product = {
    id: number
     title: string
@@ -66,3 +68,11 @@ export const productsArray: Product[] = [
         image: '/images/iphone-white.webp' ,
     },
 ]
+
+
+
+export const getProductsObject=(array: Product[]) => array.reduce((object, product)=> ({
+    ...object,[product.id]: product,
+}),
+ {}
+)

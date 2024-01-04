@@ -8,7 +8,7 @@ import { StyledEngineProvider } from '@mui/material/styles'
 type Props = {}
 
 type ProductsInCartType = {
-    [id: number]: number
+    [id: string]: number
 }
 
 const App = (props: Props) => {
