@@ -1,4 +1,4 @@
-import { object } from "prop-types"
+
 
 export type Product = {
    id: number
