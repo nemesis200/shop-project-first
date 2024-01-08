@@ -1,4 +1,4 @@
-import ProductList from 'components/Logo/Products/ProductList'
+import ProductList from 'components/Products/ProductList'
 type Props = { addProductToCart: (id: number, count: number) => void }
 
 const Home = ({ addProductToCart }: Props) => {
