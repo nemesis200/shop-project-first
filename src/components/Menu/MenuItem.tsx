@@ -11,7 +11,7 @@ const MenuItem = ({ to, children }: Props) => {
             <NavLink
                 to={to}
                 className={({ isActive }) =>
-                    isActive ? 'menu-item' : 'menu-item-active'
+                    isActive ? 'menu-item-active' : 'menu-item'
                 }
             >
                 {' '}
