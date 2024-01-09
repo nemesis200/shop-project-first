@@ -1,6 +1,7 @@
 import MenuItem from './MenuItem'
 
 type Props = {}
+
 const Menu = (props: Props) => {
     return (
         <>
@@ -11,4 +12,5 @@ const Menu = (props: Props) => {
         </>
     )
 }
+
 export default Menu
