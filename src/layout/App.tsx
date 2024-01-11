@@ -36,9 +36,7 @@ const App = (props: Props) => {
             [id]: count,
         }))
     }
-    const ommitProduct = (id: number) => {
-        setProductsCart((prevState) => omit(prevState || 1, id))
-    }
+
     return (
         <>
             <StyledEngineProvider injectFirst>
