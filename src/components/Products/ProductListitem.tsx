@@ -14,7 +14,9 @@ type ProductListItemType = {
     price: number
     image: string
     addProductToCart: (id: number, count: number) => void
-    isLiked: boolean
+    toggleLikeState: (id: number) => void
+
+    isLiked?: boolean
 }
 
 const ProductListItem = ({
@@ -26,6 +28,7 @@ const ProductListItem = ({
     price,
     image,
     addProductToCart,
+    toggleLikeState,
     isLiked = false,
 }: ProductListItemType) => {
     const [count, setCount] = useState<number>(1)
@@ -40,7 +43,7 @@ const ProductListItem = ({
     return (
         <Card className="product-list-item" variant="outlined">
             <CardContent>
-                <Button variant="outlined">
+                <Button variant="outlined" onClick={() => toggleLikeState(id)}>
                     {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
                 <div className="product-img">

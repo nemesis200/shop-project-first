@@ -15,12 +15,26 @@ type ProductsInCartType = {
     [id: string]: number
 }
 
+type ProductsLikesStateType = {
+    [id: number]: boolean
+}
+
 const App = (props: Props) => {
     const [productsInCart, setProductsCart] = useState<ProductsInCartType>({
         1: 1,
         2: 2,
     })
-
+    const [productsLikeState, setProductsLikeState] =
+        useState<ProductsLikesStateType>({
+            1: false,
+            2: false,
+        })
+    const toggleLikeState = (id: number) => {
+        setProductsLikeState((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id],
+        }))
+    }
     const addProductToCart = (id: number, count: number) => {
         setProductsCart((prevState) => ({
             ...prevState,
@@ -42,13 +56,16 @@ const App = (props: Props) => {
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
                 <Header productsInCart={productsInCart} />
-
                 <Container maxWidth="lg" sx={{ padding: '50px 0' }}>
                     <Routes>
                         <Route
                             path="/"
                             element={
-                                <Home addProductToCart={addProductToCart} />
+                                <Home
+                                    addProductToCart={addProductToCart}
+                                    toggleLikeState={toggleLikeState}
+                                    productsLikeState={productsLikeState}
+                                />
                             }
                         />
                         <Route

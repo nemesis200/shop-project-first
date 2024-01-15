@@ -2,8 +2,18 @@ import { Grid, Typography } from '@mui/material'
 import PaginationItem from './ProductListitem'
 import { productsArray } from 'utils/productsArray'
 
-type Props = { addProductToCart: (id: number, count: number) => void }
-const ProductList = ({ addProductToCart }: Props) => {
+type Props = {
+    addProductToCart: (id: number, count: number) => void
+    toggleLikeState: (id: number) => void
+    productsLikeState: {
+        [id: number]: boolean
+    }
+}
+const ProductList = ({
+    addProductToCart,
+    toggleLikeState,
+    productsLikeState,
+}: Props) => {
     return (
         <>
             <Typography
@@ -36,6 +46,8 @@ const ProductList = ({ addProductToCart }: Props) => {
                                 price={price}
                                 image={image}
                                 addProductToCart={addProductToCart}
+                                isLiked={productsLikeState[id]}
+                                toggleLikeState={toggleLikeState}
                             />
                         </Grid>
                     )
