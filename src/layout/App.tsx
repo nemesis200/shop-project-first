@@ -17,8 +17,8 @@ type ProductsInCartType = {
 
 const App = (props: Props) => {
     const [productsInCart, setProductsCart] = useState<ProductsInCartType>({
-        1: 0,
-        2: 0,
+        1: 1,
+        2: 2,
     })
 
     const addProductToCart = (id: number, count: number) => {
@@ -30,6 +30,13 @@ const App = (props: Props) => {
     const removeProductFromCart = (id: number) => {
         setProductsCart((prevState) => omit(prevState, id))
     }
+    const cahngeProductQuanyity = (id: number, count: number) => {
+        setProductsCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
+
     return (
         <>
             <StyledEngineProvider injectFirst>
@@ -51,6 +58,9 @@ const App = (props: Props) => {
                                     productsInCart={productsInCart}
                                     removeProductFromCart={
                                         removeProductFromCart
+                                    }
+                                    cahngeProductQuanyity={
+                                        cahngeProductQuanyity
                                     }
                                 />
                             }
